@@ -1,5 +1,6 @@
 package Clases;
 
+import Enums.Especialidad;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,12 +18,12 @@ public class Tecnico {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idTecnico;
     private boolean disponible;
+    private Especialidad especialidad;
 
     @OneToMany(mappedBy = "idIncidente")
-    private List<Incidente> incidente;
+    private List<Incidente> listaIncidente;
 
-    @ManyToOne
-    @JoinColumn(name = "id_operador", referencedColumnName = "idOperador")
-    private Operador operador;
+
+
 
 }

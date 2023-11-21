@@ -20,14 +20,12 @@ public class Cliente {
     private String razon_social;
     private int cuit;
 
-    @OneToMany(mappedBy = "idServicio")
-    private List<Servicio> servicio;
+    @ManyToMany
+    @JoinColumn(name = "id_servicio", referencedColumnName = "idServicio")
+    private List<Servicio> listaServicios;
 
     @OneToMany(mappedBy = "idIncidente")
-    private List<Incidente> incidente;
+    private List<Incidente> listaIncidentes;
 
-    @ManyToOne
-    @JoinColumn(name = "id_operador", referencedColumnName = "idOperador")
-    private Operador operador;
 
 }
