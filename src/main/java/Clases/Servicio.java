@@ -1,13 +1,12 @@
 package Clases;
 import Enums.Aplicaciones;
 import Enums.SistemaOperativo;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -19,5 +18,7 @@ public class Servicio {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idServicio;
     private SistemaOperativo sistema_operativo;
-    private Aplicaciones aplicaciones;
+    @ManyToMany
+    @JoinColumn(name = "id_cliente", referencedColumnName = "idCliente")
+    private List<Cliente> listaCliente;
 }

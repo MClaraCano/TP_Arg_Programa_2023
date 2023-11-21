@@ -1,7 +1,6 @@
 package Enums;
 
 public enum SistemaOperativo {
-    TANGO,
-    SAP,
-
+    LINUX,
+    WINDOWS
 }
